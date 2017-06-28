@@ -1,24 +1,23 @@
 # Site settings
-title: Songyang Blog       # 博客网站标题
-SEOTitle: 宋阳的博客 | Songyang Blog
-header-img: img/post-bg-desk.jpg
-email: 1920789426@qq.com
-description: "Goals determine what you going to be!"
-# keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
-url: "http://Joyce94.github.io"          # your host, for absolute URL
-# baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-# github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
-
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "The more self-discipline, the more freedom."
-sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+title: BAMTERCELBOO Blog
+SEOTitle: BAMTERCELBOO Blog
+header-img: img/home-bg.jpg
+email: bamtercelboo@163.com
+description: "No matter where you are ，even in despair,believe && smile"
+keyword: "bamtercelboo, AI, ML, DL, NLP"
+#url: "https://liuzonglin.com"              # your host, for absolute URL
+#baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-github_username: Joyce94
+#weibo_username:     
+zhihu_username:     
+github_username:    bamtercelboo
+twitter_username:   
+facebook_username:  
+# linkedin_username:  firstname-lastname-idxxxx
 
 
 
@@ -48,28 +47,34 @@ kramdown:
 
 
 
-# 评论系统
-# Disqus settings（https://disqus.com/）
-# disqus_username: qiubaiying
+# Disqus settings
+disqus_username: bamtercelboo
 
-# 多说 将于2017年6月1日正式关停服务，建议使用 Disqus（http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241）
+# Netease setttings
+netease_comment: false
+
 # Duoshuo settings
-# duoshuo_username: qiubaiying
+duoshuo_username: bamtercelblogblog
 # Share component is depend on Comment so we can NOT use share only.
-# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
 
 
 # Analytics settings
-# Baidu Analytics
-ba_track_id: b50bf2b12b5338a1845e33832976fd68
+# Baidu Analytics 
+# ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_domain: 
 
 
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "No matter where you are ，even in despair,believe && smile"
+sidebar-avatar: /img/me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -89,6 +94,6 @@ service-worker: true
 friends: [
     {
         title: "github",
-        href: "https://github.com/Joyce94"
+        href: "https://github.com/bamtercelboo"
     }
 ]
