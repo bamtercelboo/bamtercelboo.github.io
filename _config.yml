@@ -17,6 +17,7 @@ zhihu_username:
 github_username:    bamtercelboo
 twitter_username:   
 facebook_username:  
+csdn_username:  bamtercelboo
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -95,5 +96,11 @@ friends: [
     {
         title: "github",
         href: "https://github.com/bamtercelboo"
+    },{
+        title: "CSDN",
+        href: "http://blog.csdn.net/bamtercelboo"
+    },{
+        title: "Blog Park",
+        href: "http://www.cnblogs.com/bamtercelboo"
     }
 ]
