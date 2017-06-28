@@ -94,7 +94,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "github",
+        title: "Github",
         href: "https://github.com/bamtercelboo"
     },{
         title: "CSDN",
