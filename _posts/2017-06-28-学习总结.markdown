@@ -1,16 +1,16 @@
 ---
 layout:     post
-title:      "HI"
+title:      "学习总结"
 date:       2017-06-28
 author:     "bamtercelboo"
-header-img: "img/post-bg-miui6.jpg"
+header-img: "img/post-bg-os-metro.jpg"
 tags:
     - CSDN
 ---
 
-> 查看(http://www.cnblogs.com/bamtercelboo/)
+> 查看(http://blog.csdn.net/bamtercelboo/article/details/73733379)
 
 
 <div>
-查看(http://www.cnblogs.com/bamtercelboo/)
+  <a href="http://blog.csdn.net/bamtercelboo/article/details/73733379">点击查看</a>
 </div>
