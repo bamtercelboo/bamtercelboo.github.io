@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "HI"
-date:       2017-06-28
+title:      "学习总结"
+date:       2017-06-28 10:00:00
 author:     "bamtercelboo"
 header-img: "img/post-bg-miui6.jpg"
 tags:
@@ -12,5 +12,4 @@ tags:
 
 
 <div>
-查看(http://www.cnblogs.com/bamtercelboo/)
 </div>
