@@ -9,10 +9,8 @@ tags:
 ---
 
 > <div>
-  <a href="http://www.cnblogs.com/bamtercelboo/p/7107009.html">基于GCC的openMP学习与测试</a>
-  </div>
+  <a href="http://www.cnblogs.com/bamtercelboo/p/7107009.html">基于GCC的openMP学习与测试</a></div>
 <div>
-  
 
 - 随着CPU速度不再像以前那样显著提高，多核系统正变得越来越流行。为了利用这种能力，程序员在并行编程中变得很有知识变得越来越重要——让程序同时执行多个任务。Open Multiprocessing (OpenMP) 框架是一种功能极为强大的规范，可以帮助您利用 C、C++ 和 Fortran 应用程序中的多个核心带来的好处，是基于共享内存模式的一种并行编程模型, 使用十分方便, 只需要串行程序中加入OpenMP预处理指令, 就可以实现串行程序的并行化。
   
