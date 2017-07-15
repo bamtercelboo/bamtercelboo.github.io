@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "基于Pytorch实现Word2Vec"
-date:       2017-07-015
+date:       2017-07-15
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
