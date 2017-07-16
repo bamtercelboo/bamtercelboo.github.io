@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "WORDTWOVECTOR"
-date:       2017-07-15
+date:       2017-07-16
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
