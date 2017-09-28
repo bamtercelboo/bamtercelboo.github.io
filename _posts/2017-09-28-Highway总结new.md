@@ -15,24 +15,17 @@ tags:
   
 ##  二、Deep Networks 梯度消失/爆炸（vanishing and exploding gradient）问题 ##
 
- 我们先来看一下简单的深层神经网络（仅仅几个隐藏层）  
-
- ![](https://i.imgur.com/eg3bMXJ.png)
+ 我们先来看一下简单的深层神经网络（仅仅几个隐层）  
 
 先把各个层的公式写出来  
 
-<pre>
-C  = sigmoid(W4 * H3 + b4)
-H3 = sigmoid(W3 * H2 + b3)
-H2 = sigmoid(W2 * H1 + b2)
-H1 = sigmoid(W1 * x + b1)
-</pre>
+![](https://i.imgur.com/7Adf9NF.jpg)
+
 我们对W1求导：
 
  ![](https://i.imgur.com/rxT0zaw.jpg)
-<pre>
+
 W = W - lr * g(t)
-</pre>
 
 以上公式仅仅是四个隐层的情况，当隐层的数量达到数十层甚至是数百层的情况下，一层一层的反向传播回去，当权值 < 1的时候，反向传播到某一层之后权值近乎不变，相当于输入x的映射，例如，g(t) =〖0.9〗^100已经是很小很小了，这就造成了只有前面几层能够正常的反向传播，后面的那些隐层仅仅相当于输入x的权重的映射，权重不进行更新。反过来，当权值 > 1的时候，会造成梯度爆炸，同样是仅仅前面的几层能更改正常学习，后面的隐层会变得很大。
 
@@ -142,8 +135,8 @@ W = W - lr * g(t)
 
 ## 五、Highway BiLSTM Networks 实验结果 ##
 
-本次实验任务是使用Highway BiLSTM Networks 完成情感分类任务（一句话的态度分成积极或者是消极），数据来源于Twitter情感分类数据集，以下是各个数据集中的句子个数：  
-![](https://i.imgur.com/UOmOhed.jpg)
+本次实验任务是使用Highway BiLSTM Networks 完成情感分类任务（一句话的态度分成积极或者是消极），数据来源于Twitter情感分类数据集，以下是数据集中的各个标签的句子个数：  
+![](https://i.imgur.com/FiepQ8N.jpg)
 
 下图是本次实验任务中的测试集中的测试结果，其中1-300在Highway BiLSTM Networks中表示Layer = 1，BiLSTM 隐层的维度是300维。  
 ![](https://i.imgur.com/GRdGMa6.jpg)
