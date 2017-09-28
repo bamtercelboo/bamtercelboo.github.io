@@ -65,6 +65,11 @@ W = W - lr * g(t)
 	几个公式相比，公式3要比公式1灵活的多，可以考虑一下特殊的情况，T= 0的时候，y = x，原始输入信息全部保留，不做任何的改变，T = 1的时候，Y = H，原始信息全部转换，不在保留原始信息，仅仅相当于一个普通的神经网络。 
  
 	![aa](https://i.imgur.com/7FoDAKr.jpg)
+
+- **Highway Networks  Structure Diagram**  
+
+	按照自己的理解画的 Highway Networks结构图：
+	![](https://i.imgur.com/HenOLyG.jpg)
 	
 ## 四、Highway BiLSTM Networks 搭建##
 
