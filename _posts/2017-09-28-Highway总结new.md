@@ -73,7 +73,7 @@ W = W - lr * g(t)
 	![](https://i.imgur.com/u6gj2rm.jpg)  
 
 - **Highway BiLSTM Networks  Demo**  
-	pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highwany BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
+	pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highway BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
 	<pre>
     class HBiLSTM(nn.Module):
 	def __init__(self, args):
