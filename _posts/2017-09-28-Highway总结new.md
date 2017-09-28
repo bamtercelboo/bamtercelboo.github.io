@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Highway Networks"
+title:      "Highway Networks Pytorch"
 date:       2017-09-28
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
