@@ -64,13 +64,14 @@ W = W - lr * g(t)
 
 - **Highway BiLSTM Networks  Structure Diagram**  
 	下图是 Highway BiLSTM Networks 结构图：  
-	x：代表输入的词向量  
-	H：在本任务代表bidirection lstm  
+	input：代表输入的词向量  
+	B：在本任务代表bidirection lstm，代表公式（2）中的 H  
 	T：代表公式（2）中的 T，是Highway Networks中的transform gate  
 	C：代表公式（2）中的 C，是Highway Networks中的carry gate  
 	Layer = n，代表Highway Networks中的第n层  
-	在这个结构图中，Highway Networks第 n - 1 层的输出作为第n层的输入
-	![](https://i.imgur.com/u6gj2rm.jpg)  
+	Highway：框出来的代表一层Highway Networks  
+	在这个结构图中，Highway Networks第 n - 1 层的输出作为第n层的输入  
+	![](https://i.imgur.com/qimnW2x.jpg)
 
 - **Highway BiLSTM Networks  Demo**  
 	pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highway BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
