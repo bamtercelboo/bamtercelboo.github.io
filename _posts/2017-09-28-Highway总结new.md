@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Highway Networks总结"
+title:      "Highway Networks"
 date:       2017-09-28
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
@@ -58,11 +58,10 @@ W = W - lr * g(t)
 
 	![](https://i.imgur.com/JybabV1.jpg)
 
-	需要注意的是x，y， H， T的维度必须一致，要想保证其维度一致，可以采用`sub-sampling`或者`zero-padding`策略，也可以使用普通的线性层改变维度，使其一致，可以采用几个公式相比，公式3要比公式1灵活的多，可以考虑一下特殊的情况，T= 0的时候，y = x，原始输入信息全部保留，不做任何的改变，T = 1的时候，Y = H，原始信息全部转换，不在保留原始信息，仅仅相当于一个普通的神经网络。  
+	需要注意的是x，y， H， T的维度必须一致，要想保证其维度一致，可以采用`sub-sampling`或者`zero-padding`策略，也可以使用普通的线性层改变维度，使其一致，可以采用几个公式相比，公式3要比公式1灵活的多，可以考虑一下特殊的情况，T= 0的时候，y = x，原始输入信息全部保留，不做任何的改变，T = 1的时候，Y = H，原始信息全部转换，不在保留原始信息，仅仅相当于一个普通的神经网络。 
+ 
 	![aa](https://i.imgur.com/7FoDAKr.jpg)
 	
-
-
 ## 四、Highway BiLSTM Networks 搭建##
 
 pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highwany BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
