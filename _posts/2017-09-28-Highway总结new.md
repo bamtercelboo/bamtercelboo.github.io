@@ -66,15 +66,22 @@ W = W - lr * g(t)
  
 	![aa](https://i.imgur.com/7FoDAKr.jpg)
 
-- **Highway Networks  Structure Diagram**  
 
-	按照自己的理解画的 Highway Networks结构图：
-	![](https://i.imgur.com/HenOLyG.jpg)
-	
-## 四、Highway BiLSTM Networks 搭建##
+## 四、Highway BiLSTM Networks ##
 
-pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highwany BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
-<pre>
+- **Highway BiLSTM Networks  Structure Diagram**  
+	下图是 Highway BiLSTM Networks 结构图：  
+	x：代表输入的词向量  
+	H：在本任务代表bidirection lstm  
+	T：代表公式（2）中的 T，是Highway Networks中的transform gate  
+	C：代表公式（2）中的 C，是Highway Networks中的carry gate  
+	Layer = n，代表Highway Networks中的第n层  
+	在这个结构图中，Highway Networks第 n - 1 层的输出作为第n层的输入
+	![](https://i.imgur.com/u6gj2rm.jpg)  
+
+- **Highway BiLSTM Networks  Demo**  
+	pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highwany BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
+	<pre>
     class HBiLSTM(nn.Module):
 	def __init__(self, args):
 		super(HBiLSTM, self).__init__()
@@ -82,9 +89,9 @@ pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现�
 	def forward(self, x):
 		# 实现Highway BiLSTM Networks的公式
 		......
-</pre>
+	</pre>
 
-<pre>
+	<pre>
     class HBiLSTM_model(nn.Module): 
 	def __init__(self, args):
 		super(HBiLSTM_model, self).__init__()
@@ -97,30 +104,30 @@ pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现�
 		# 调用HBiLSTM类的forward()函数
 		for current_layer in self.highway:
 			x, self.hidden = current_layer(x, self.hidden)
-</pre>
-在`HBiLSTM`类的`forward()`函数里面我们实现`Highway BiLSTM Networks`的的公式  
-首先我们先来计算H，上文已经说过，H可以是卷积或者是LSTM，在这里，`normal_fc`就是我们需要的H
-<pre>
+	</pre>
+	在`HBiLSTM`类的`forward()`函数里面我们实现`Highway BiLSTM Networks`的的公式  
+	首先我们先来计算H，上文已经说过，H可以是卷积或者是LSTM，在这里，`normal_fc`就是我们需要的H
+	<pre>
 	 x, hidden = self.bilstm(x, hidden)
 		 # torch.transpose是转置操作
 		 normal_fc = torch.transpose(x, 0, 1)
-</pre>
+	</pre>
 
-上文提及，x，y，H，T的维度必须保持一致，并且提供了两种策略，这里我们使用一个普通的`Linear`去转换维度
-<pre>
+	上文提及，x，y，H，T的维度必须保持一致，并且提供了两种策略，这里我们使用一个普通的`Linear`去转换维度
+	<pre>
 	source_x = source_x.contiguous()
 	information_source = source_x.view(source_x.size(0) * source_x.size(1), source_x.size(2))
 	information_source = self.gate_layer(information_source)
 	information_source = information_source.view(source_x.size(0), source_x.size(1), information_source.size(1))
-</pre>
-也可以采用`zero-padding`的策略保证维度一致  
-<pre>
-        # you also can choose the strategy that zero-padding
-        zeros = torch.zeros(source_x.size(0), source_x.size(1), carry_layer.size(2) - source_x.size(2))
-        source_x = Variable(torch.cat((zeros, source_x.data), 2))
-</pre>
-维度一致之后我们就可以根据我们的公式来写代码了：
-<pre>
+	</pre>
+	也可以采用`zero-padding`的策略保证维度一致  
+	<pre>
+	# you also can choose the strategy that zero-padding
+	zeros = torch.zeros(source_x.size(0), source_x.size(1), carry_layer.size(2) - source_x.size(2))
+	source_x = Variable(torch.cat((zeros, source_x.data), 2))
+	</pre>
+	维度一致之后我们就可以根据我们的公式来写代码了：
+	<pre>
 	# transformation gate layer in the formula is T
 	transformation_layer = F.sigmoid(information_source)
 	# carry gate layer in the formula is C
@@ -129,27 +136,19 @@ pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现�
 	allow_transformation = torch.mul(normal_fc, transformation_layer)
 	allow_carry = torch.mul(information_source, carry_layer)
         information_flow = torch.add(allow_transformation, allow_carry)
-</pre>
-最后的`information_flow`就是我们的输出，但是，还需要经过转换维度保证维度一致。  
-更多的请参考Github： [Highway Networks implement in pytorch](https://github.com/bamtercelboo/pytorch_Highway_Networks) 
+	</pre>
+	最后的`information_flow`就是我们的输出，但是，还需要经过转换维度保证维度一致。  
+	更多的请参考Github： [Highway Networks implement in pytorch](https://github.com/bamtercelboo/pytorch_Highway_Networks) 
 
-## 五、Highway Networks 实验结果 ##
+## 五、Highway BiLSTM Networks 实验结果 ##
 
-- **个人实验结果**  
+本次实验任务是使用Highway BiLSTM Networks 完成情感分类任务（一句话的态度分成积极或者是消极），数据来源于Twitter情感分类数据集，以下是各个数据集中的句子个数：  
+![](https://i.imgur.com/UOmOhed.jpg)
 
-	![](https://i.imgur.com/G9Czg8F.jpg)
+下图是本次实验任务中的测试集中的测试结果，其中1-300在Highway BiLSTM Networks中表示Layer = 1，BiLSTM 隐层的维度是300维。  
+![](https://i.imgur.com/GRdGMa6.jpg)
 
-	任务：情感分类任务  ---  二分类  
-	数据规模 ：  
-	![](https://i.imgur.com/fSwWdOJ.jpg)
-
-	分析：从图中可以看出，相同的参数情况下，浅层神经网络相互对比变化不是很明显，5层的神经网络就有了一些变化，准确率相差了一个点左右。由于硬件资源，更加深的深层神经网络还没有测试。  但是从图中也可以发现问题就是伴随深度的加深，Highway Networks的准确率也在下降，深度加深，神经网络的参数也就增加的越多，这就需要重新调节超参数。
-
-- **Paper 实验结果**
-
-	![](https://i.imgur.com/zOukeYJ.jpg)
-
-	分析：从论文的实验结果来看，当深层神经网络的层数能够达到50层甚至100层的时候，loss也能够下降的很快，犹如几层的神经网络一样，与普通的深层神经网络形成了鲜明的对比。
+实验结果：从图中可以看出，Highway Networks在本任务上的并没有表现出很好的效果，伴随神经网络深度的增加，在测试集上的准确率有所下降，但是下降的速度相比于普通的神经网络来说要慢很多。
 
 ## References ##
 - [Highway Networks(paper)](https://arxiv.org/pdf/1505.00387.pdf)
