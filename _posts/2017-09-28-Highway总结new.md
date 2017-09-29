@@ -139,10 +139,11 @@ W = W - lr * g(t)
 本次实验任务是使用Highway BiLSTM Networks 完成情感分类任务（一句话的态度分成积极或者是消极），数据来源于Twitter情感分类数据集，以下是数据集中的各个标签的句子个数：  
 ![](https://i.imgur.com/FNQ3Kkr.jpg)
 
-下图是本次实验任务在2-class数据集中的测试结果。图中1-300在Highway BiLSTM Networks中表示Layer = 1，BiLSTM 隐层的维度是300维。对于10-300的BiLSTM因为无法收敛，测试集准确率仅仅能达到49.91。  
-![](https://i.imgur.com/GRdGMa6.jpg)
+下图是本次实验任务在2-class数据集中的测试结果。图中1-300在Highway BiLSTM Networks中表示Layer = 1，BiLSTM 隐层的维度是300维。  
+![](https://i.imgur.com/mmBj4so.jpg)
 
-实验结果：从图中可以看出，Highway Networks在本任务上的并没有表现出很好的效果，伴随神经网络深度的增加，在测试集上的准确率有所下降，但是下降的速度相比于普通的神经网络来说要慢很多。
+实验结果：从图中可以看出，简单的多层双向LSTM并没有带来情感分析性能的提升，尤其是是到了10层之后，效果有不如随机的猜测。当用上Highway Networks之后，虽然性能也在逐步的下降，但是下降的幅度有了明显的改善。
+
 
 ## References ##
 - [Highway Networks(paper)](https://arxiv.org/pdf/1505.00387.pdf)
