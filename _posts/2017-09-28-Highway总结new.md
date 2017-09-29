@@ -71,7 +71,7 @@ W = W - lr * g(t)
 	Layer = n，代表Highway Networks中的第n层  
 	Highway：框出来的代表一层Highway Networks  
 	在这个结构图中，Highway Networks第 n - 1 层的输出作为第n层的输入    
-	![](https://i.imgur.com/DgzX8j7.jpg)
+	![](https://i.imgur.com/KzfE2Tc.jpg)
 
 - **Highway BiLSTM Networks  Demo**  
 	pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现里面的`forward()`函数，搭建Highway BiLSTM Networks写了两个类，并使用`nn.ModuleList`将两个类联系起来：
