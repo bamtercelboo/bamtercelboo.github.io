@@ -183,11 +183,11 @@ pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现�
 - 以下实验结果是在Twitter数据集上对forward和backward测试的平均运行时间，其中SRU、LSTM、CNN都是经过CUDA优化的，CNN的kernel-size=3，SRU和LSTM的隐层维度是300，三个模型的batch size是16，以毫秒为单位计算，图中SRU-1代表一层的SRU模型，：  
 
 
--  ![](https://i.imgur.com/0E3PITv.jpg)
+- ![](https://i.imgur.com/vWhHe3G.jpg)
  
-- ![](https://i.imgur.com/jpxIq9A.jpg)
+- ![](https://i.imgur.com/IZkPNiE.jpg)
 
-- 实验结果：从上述实验结果能够说明在句子分类任务上，单层的SRU能够达到与CNN相同的速度，比LSTM快2 — 3倍；多层的SRU和LSTM训练时间虽然都在增加，但是相比之下还是SRU比LSTM快；上文测试需要4层SRU才能达到一层LSTM效果的情况下，SRU能与LSTM的达到一样的速度。
+- 实验结果：从上述实验结果能够说明在句子分类任务上，单层的SRU能够达到与CNN相同的速度，比LSTM快2 — 3倍；上文测试需要4层SRU才能达到一层LSTM效果的情况下，4层SRU能与一层LSTM的达到相同的速度。
 
 
 
