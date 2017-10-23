@@ -171,24 +171,24 @@ pytorch搭建神经网络一般需要继承`nn.Module`这个类，然后实现�
 ![](https://i.imgur.com/wQtov6K.jpg)
 
 
-### 2、SRU、LSTM、CNN速度对比 ###
-- 以下实验结果是在Twitter数据集上对forward和backward测试的平均运行时间，其中SRU、LSTM、CNN都是经过CUDA优化的，以毫秒为单位计算：  
-
-
-- ![](https://i.imgur.com/bic8jfm.jpg)  
-
-- ![](https://i.imgur.com/sRP1vFS.jpg)  
-
-- 实验结果：从上述实验结果能够说明在句子分类任务上SRU能够达到和CNN一样的速度，比LSTM快2---3倍。
-
-
-
-### 3、SRU、LSTM、CNN准确率对比 ###
+### 2、SRU、LSTM、CNN准确率对比 ###
 - 以下实验结果是在CR、Subj、MR、Twitter四个句子分类数据集上测试的结果：
 
-- ![](https://i.imgur.com/3zAI9Vt.jpg)
+- ![](https://i.imgur.com/raMPaTW.jpg)
 
-- 实验结果：在四个数据集上SRU与LSTM的准确率相差不大，甚至有些数据集上要比LSTM表现的好，这表明SRU并没有为了提升速度而降低准确率；SRU需要多层才能达到一层LSTM的效果，这与上文提及的Highway Connection有很大的关系。
+- 实验结果：在四个数据集上SRU与LSTM的准确率相差不大，有的数据集（像CR、Subj）一层的SRU效果就能达到一层LSTM的效果，但是在MR、Twitter数据集上一层的效果反而不是很好，需要叠加多层SRU才能达到LSTM一层的效果，这与上文提及的Highway Connection有很大的关系。
+
+
+### 3、SRU、LSTM、CNN速度对比 ###
+- 以下实验结果是在Twitter数据集上对forward和backward测试的平均运行时间，其中SRU、LSTM、CNN都是经过CUDA优化的，CNN的kernel-size=3，SRU和LSTM的隐层维度是300，三个模型的batch size是16，以毫秒为单位计算，图中SRU-1代表一层的SRU模型，：  
+
+
+-  ![](https://i.imgur.com/0E3PITv.jpg)
+ 
+- ![](https://i.imgur.com/jpxIq9A.jpg)
+
+- 实验结果：从上述实验结果能够说明在句子分类任务上，单层的SRU能够达到与CNN相同的速度，比LSTM快2 — 3倍；多层的SRU和LSTM训练时间虽然都在增加，但是相比之下还是SRU比LSTM快；上文测试需要4层SRU才能达到一层LSTM效果的情况下，SRU能与LSTM的达到一样的速度。
+
 
 
 
