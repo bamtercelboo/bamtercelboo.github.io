@@ -1,0 +1,106 @@
+# Site settings
+title: BAMTERCELBOO Blog
+SEOTitle: BAMTERCELBOO Blog
+header-img: img/home-bg-oo.jpg
+email: bamtercelboo@163.com
+description: "No matter where you are ，even in despair,believe && smile"
+keyword: "bamtercelboo, AI, ML, DL, NLP"
+#url: "https://liuzonglin.com"              # your host, for absolute URL
+#baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+
+
+
+# SNS settings
+RSS: false
+#weibo_username:     
+zhihu_username:     
+github_username:    bamtercelboo
+twitter_username:   
+facebook_username:  
+csdn_username:  bamtercelboo
+# linkedin_username:  firstname-lastname-idxxxx
+
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+disqus_username: bamtercelboo
+
+# Netease setttings
+netease_comment: false
+
+# Duoshuo settings
+duoshuo_username: bamtercelblogblog
+# Share component is depend on Comment so we can NOT use share only.
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+
+
+# Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+
+# Google Analytics
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_domain: 
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "No matter where you are ，even in despair,believe && smile"
+sidebar-avatar: /img/me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# Friends
+friends: [
+    {
+        title: "Github",
+        href: "https://github.com/bamtercelboo"
+    },{
+        title: "CSDN",
+        href: "http://blog.csdn.net/bamtercelboo"
+    },{
+        title: "Blog Park",
+        href: "http://www.cnblogs.com/bamtercelboo"
+    }
+]

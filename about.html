@@ -1,0 +1,88 @@
+---
+layout: page
+title: "About"
+description: "BAMTERCELBOO BLOG"
+header-img: "img/home-bg-oo.jpg"
+---
+
+<!-- Language Selector -->
+<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+
+    <!--copied from markdown -->
+    <blockquote><p> <h2>No matter where you are ，even in despair,believe && smile</h2></p></blockquote>
+
+    <h2><p>Hi,<strong>bamtercelboo</strong></p><h2>
+    
+    <h5>Talks</h5>
+
+    <ul>
+    <li><a href="https://github.com/bamtercelboo">GitHub</a></li>
+	<li><a href="http://blog.csdn.net/bamtercelboo">CSDN博客</a></li>
+	<li><a href="http://www.cnblogs.com/bamtercelboo/">博客园</a></li>
+	</ul>
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote><p> <h2>No matter where you are ，even in despair,believe && smile</h2></p></blockquote>
+
+    <h2><p>Hi,<strong>bamtercelboo</strong></p><h2>
+    <h5>Talks</h5>
+
+    <ul>
+    <li><a href="https://github.com/bamtercelboo">GitHub</a></li>
+	<li><a href="http://blog.csdn.net/bamtercelboo">CSDN Blog</a></li>
+	<li><a href="http://www.cnblogs.com/bamtercelboo/">Blog Park</a></li>
+	</ul>
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+
+
+
