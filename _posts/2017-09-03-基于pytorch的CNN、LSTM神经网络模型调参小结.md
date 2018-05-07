@@ -5,11 +5,9 @@ date:       2017-09-03
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 博客园
     - pytorch
     - CNN 
     - LSTM
-    - 调参
  
 ---
 

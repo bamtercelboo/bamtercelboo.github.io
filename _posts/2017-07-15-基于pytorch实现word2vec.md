@@ -5,8 +5,8 @@ date:       2017-07-15
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 博客园 
-    - Pytorch
+    - pytorch
+    - word2vec
  
 ---
 

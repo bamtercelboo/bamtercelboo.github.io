@@ -5,7 +5,6 @@ date:       2017-09-04
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 博客园
     - python
     - linux
     - vim

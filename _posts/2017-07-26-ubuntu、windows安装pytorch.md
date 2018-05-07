@@ -5,9 +5,7 @@ date:       2017-07-26
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 博客园
     - ubuntu
-    - windows 
     - Pytorch
  
 ---
