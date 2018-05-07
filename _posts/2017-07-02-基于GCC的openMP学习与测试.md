@@ -5,7 +5,9 @@ date:       2017-07-02
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 博客园
+    - openMP
+
+
 ---
 
 > <div>
