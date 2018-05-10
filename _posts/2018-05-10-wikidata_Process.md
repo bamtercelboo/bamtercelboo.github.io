@@ -47,13 +47,13 @@ tags:
 - 下载下来的数据是压缩文件（bz2，gz），不需要解压，这里已经写好了一份利用gensim处理维基百科数据的脚本（[wikidata_process](https://github.com/bamtercelboo/corpus_process_script/tree/master/wikidata_process)）
 
 - 使用：
-##
+#  
 	python wiki_process.py zhwiki-latest-pages-articles.xml.bz2 zhwiki-latest.txt
 
 - 这部分需要一些的时间，处理过后的得到一份中文维基百科正文数据（zhwiki-latest.txt）。
 
 - 输出文件类似于：  
-#
+#  
 	歐幾里得 西元前三世紀的古希臘數學家 現在被認為是幾何之父 此畫為拉斐爾的作品 雅典學院 数学 是利用符号语言研究數量 结构 变化以及空间等概念的一門学科
 
 ## 4、中文繁体转简体 ##
