@@ -27,7 +27,7 @@ tags:
 	- Gensim : [https://github.com/RaRe-Technologies/gensim](https://github.com/RaRe-Technologies/gensim)
 	- 使用 `pip install gensim` 安装gensim。
 
-- （3）、OpenCC第三方库，是中文字符转换，包换中文简体繁体相互转换等。
+- （3）、OpenCC第三方库，是中文字符转换，包括中文简体繁体相互转换等。
 	- OpenCC：[https://github.com/BYVoid/OpenCC](https://github.com/BYVoid/OpenCC)，OpenCC源码采用c++实现，如果会用c++的可以使用根据介绍，make编译源码。
 	- OpenCC也有python版本实现，可以通过pip安装（`pip install opencc-python`），速度要比c++版慢，但是使用方便，安装简单，推荐使用pip安装。
 
@@ -66,8 +66,7 @@ tags:
 	python chinese_t2s.py --input zhwiki-latest.txt --output zhwiki-latest-simplified.txt
 
 - 输出文件类似于
-#
-	欧几里得 西元前三世纪的古希腊数学家 现在被认为是几何之父 此画为拉斐尔的作品 雅典学院 数学 是利用符号语言研究数量 结构 变化以及空间等概念的一门学科
+	>欧几里得 西元前三世纪的古希腊数学家 现在被认为是几何之父 此画为拉斐尔的作品 雅典学院 数学 是利用符号语言研究数量 结构 变化以及空间等概念的一门学科
 
 ## 5、清洗语料 ##
 
