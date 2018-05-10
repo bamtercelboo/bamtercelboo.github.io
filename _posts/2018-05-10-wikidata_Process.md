@@ -25,10 +25,10 @@ tags:
 - （1）、编程语言采用 python3
 - （2）、Gensim第三方库，Gensim是一个Python的工具包，其中有包含了中文维基百科数据处理的类，使用方便。
 	- Gensim : [https://github.com/RaRe-Technologies/gensim](https://github.com/RaRe-Technologies/gensim)
-	- 使用 ` pip install gensim ` 安装gensim。
+	- 使用 `pip install gensim` 安装gensim。
 
 - （3）、OpenCC第三方库，是中文字符转换，包换中文简体繁体相互转换等。
-	- OpenCC：[https://github.com/BYVoid/OpenCC](https://github.com/BYVoid/OpenCC)，OpenCC源码采用c++实现，如果会用c++的可以使用根据介绍make编译源码。
+	- OpenCC：[https://github.com/BYVoid/OpenCC](https://github.com/BYVoid/OpenCC)，OpenCC源码采用c++实现，如果会用c++的可以使用根据介绍，make编译源码。
 	- OpenCC也有python版本实现，可以通过pip安装（`pip install opencc-python`），速度要比c++版慢，但是使用方便，安装简单，推荐使用pip安装。
 
 
@@ -47,7 +47,7 @@ tags:
 - 下载下来的数据是压缩文件（bz2，gz），不需要解压，这里已经写好了一份利用gensim处理维基百科数据的脚本（[wikidata_process](https://github.com/bamtercelboo/corpus_process_script/tree/master/wikidata_process)）
 
 - 使用：
-#
+##
 	python wiki_process.py zhwiki-latest-pages-articles.xml.bz2 zhwiki-latest.txt
 
 - 这部分需要一些的时间，处理过后的得到一份中文维基百科正文数据（zhwiki-latest.txt）。
