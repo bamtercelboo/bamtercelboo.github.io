@@ -47,14 +47,12 @@ tags:
 - 下载下来的数据是压缩文件（bz2，gz），不需要解压，这里已经写好了一份利用gensim处理维基百科数据的脚本（[wikidata_process](https://github.com/bamtercelboo/corpus_process_script/tree/master/wikidata_process)）
 
 - 使用：
-#  
-	python wiki_process.py zhwiki-latest-pages-articles.xml.bz2 zhwiki-latest.txt
+	>python wiki_process.py zhwiki-latest-pages-articles.xml.bz2 zhwiki-latest.txt
 
 - 这部分需要一些的时间，处理过后的得到一份中文维基百科正文数据（zhwiki-latest.txt）。
 
 - 输出文件类似于：  
-#  
-	歐幾里得 西元前三世紀的古希臘數學家 現在被認為是幾何之父 此畫為拉斐爾的作品 雅典學院 数学 是利用符号语言研究數量 结构 变化以及空间等概念的一門学科
+	>歐幾里得 西元前三世紀的古希臘數學家 現在被認為是幾何之父 此畫為拉斐爾的作品 雅典學院 数学 是利用符号语言研究數量 结构 变化以及空间等概念的一門学科
 
 ## 4、中文繁体转简体 ##
 
@@ -63,9 +61,8 @@ tags:
 - 我们利用OpenCC进行繁体转简体的操作，这里已经写好了一份python版本的脚本来进行处理（[chinese_t2s](https://github.com/bamtercelboo/corpus_process_script/tree/master/chinese_t2s)）
 
 - 使用：
-#
-	python chinese_t2s.py --input input_file --output output_file
-	like:
+	>python chinese_t2s.py --input input_file --output output_file  
+	like:  
 	python chinese_t2s.py --input zhwiki-latest.txt --output zhwiki-latest-simplified.txt
 
 - 输出文件类似于
@@ -77,16 +74,14 @@ tags:
 - 上述处理已经得到了我们想要的数据，但是在其他的一些任务中，还需要对这份数据进行简单的处理，像词向量任务，在这得到的数据里，还包含很多的英文，日文，德语，中文标点，乱码等一些字符，我们要把这些字符清洗掉，只留下中文字符，仅仅留下中文字符只是一种处理方案，不同的任务需要不同的处理，这里已经写好了一份脚本（[clean](https://github.com/bamtercelboo/corpus_process_script/tree/master/clean)）。
 
 - 使用：
-#
-	python clean_corpus.py --input input_file --output output_file
-	like：
+	>python clean_corpus.py --input input_file --output output_file  
+	like：  
 	python clean_corpus.py --input zhwiki-latest-simplified.txt --output zhwiki-latest-simplified_cleaned.txt
 
 - 效果：
-#
-	input:
-	哲学	哲学（英语：philosophy）是对普遍的和基本的问题的研究，这些问题通常和存在、知识、价值、理性、心灵、语言等有关。
-	output:
+	>input:  
+	哲学	哲学（英语：philosophy）是对普遍的和基本的问题的研究，这些问题通常和存在、知识、价值、理性、心灵、语言等有关。  
+	output:  
 	哲学哲学英语是对普遍的和基本的问题的研究这些问题通常和存在知识价值理性心灵语言等有关
 
 # 三 、数据处理脚本  #
