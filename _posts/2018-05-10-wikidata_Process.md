@@ -29,7 +29,7 @@ tags:
 
 - （3）、OpenCC第三方库，是中文字符转换，包括中文简体繁体相互转换等。
 	- OpenCC：[https://github.com/BYVoid/OpenCC](https://github.com/BYVoid/OpenCC)，OpenCC源码采用c++实现，如果会用c++的可以使用根据介绍，make编译源码。
-	- OpenCC也有python版本实现，可以通过pip安装（`pip install opencc-python`），速度要比c++版慢，但是使用方便，安装简单，推荐使用pip安装。
+	- OpenCC也有python版本实现，可以通过pip安装（`pip install opencc-python` 或者是`pip install opencc-python-reimplemented`），速度要比c++版慢，但是使用方便，安装简单，推荐使用pip安装。
 
 
 ## 2、数据下载 ##
