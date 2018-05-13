@@ -13,7 +13,7 @@ keyword: "bamtercelboo, AI, ML, DL, NLP"
 # SNS settings
 RSS: false
 #weibo_username:     
-zhihu_username:     
+zhihu_username:     bamtercelboo
 github_username:    bamtercelboo
 twitter_username:   
 facebook_username:  
@@ -97,8 +97,8 @@ friends: [
         title: "Github",
         href: "https://github.com/bamtercelboo"
     },{
-        title: "CSDN",
-        href: "http://blog.csdn.net/bamtercelboo"
+        title: "ZhiHU",
+        href: "https://www.zhihu.com/people/bamtercelboo/"
     },{
         title: "Blog Park",
         href: "http://www.cnblogs.com/bamtercelboo"
