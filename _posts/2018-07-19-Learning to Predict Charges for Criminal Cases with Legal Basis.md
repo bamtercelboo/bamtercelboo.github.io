@@ -63,7 +63,18 @@ tags:
 ## Output ##
 最终的把fact embedding(df) 和 article embedding(da) concat 在一起，做最后的预测，这里还设置了一个threshold。  
 
+### Supervised Article Attention ###
+在训练的过程中，利用金标的法条监督法条attention的分布，就是想要法条attention的分布于目标法条的分布相似， loss的计算公式如下。  
+![](https://i.imgur.com/fRCYE5T.jpg)
 
+
+#  实验部分  #
+实验的参数设置没有什么特别的，实验部分，论文做了很多的对比实验，从结果来看（下图）法条特征对预测确实起着很大的作用。  
+![](https://i.imgur.com/iN5GTUi.jpg)
+
+
+#  总结 #
+法条特征对这个任务确实起着很重要的作用，虽然论文仅仅做了单一罪名的预测，没有尝试多罪名预测中法条特征的影响，但是论文的思路已经给我们提供了新的方向。
 
 # References  #
 [1] Learning to Predict Charges for Criminal Cases with Legal Basis
