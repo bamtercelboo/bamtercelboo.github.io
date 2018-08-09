@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "中文词向量论文总结"
+title:      "中文词向量论文综述"
 date:       2018-05-15
 author:     "bamtercelboo"
 header-img: "img/post-bg-2015.jpg"
@@ -20,7 +20,7 @@ tags:
 
 
 #  进度  #
-目前较忙，会尽快总结完成。
+目前较忙，会尽快总结完成。开始抽时间整理。
 
 
 # References  #
