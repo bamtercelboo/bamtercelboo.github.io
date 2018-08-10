@@ -15,7 +15,7 @@ tags:
 最近在做中文词向量相关工作，其中看了一些中文词向量的相关论文，在这篇文章，将把近几年的中文词向量进展及其模型结构加以简述。
 
 
-#一、Component-Enhanced Chinese Character Embeddings #
+# 一、Component-Enhanced Chinese Character Embeddings #
 
 ## 论文来源 ##
 这是一篇发表在2015年EMNLP会议上的论文，作者来自于香港理工大学 --- 李嫣然。
