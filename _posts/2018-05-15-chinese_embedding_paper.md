@@ -18,7 +18,7 @@ tags:
 # 一、Component-Enhanced Chinese Character Embeddings #
 
 ## 论文来源 ##
-*这是一篇2015年发表在EMNLP会议上的论文，作者来自于香港理工大学 --- 李嫣然。*
+*这是一篇2015年发表在EMNLP(Empirical Methods in Natural Language Processing)会议上的论文，作者来自于香港理工大学 --- 李嫣然。*
 
 ## Abstract ##
 在目前的NLP各项任务中，词向量已经得到了广泛的应用并取得了很好的效果，然而大多数是对于英文等西方语言，对于中文，由于中文汉字包含了巨大的信息，在中文词向量的工作中有很大的提升，这篇论文认为汉字的组件（部首）包含了大量的语义信息，基于此提出了两个词向量模型，对中文字向量进行了改善，实验结果表明在文本分类已经词相似度上都得到了提升。
@@ -39,8 +39,18 @@ Word Similarity采用的评估文件大多数都是基于英文构建的，像 W
 
 
 
-# 二、 #
+# 二、 Joint Learning of Character and Word Embeddings #
 
+## 论文来源 ##
+*这是一篇2015年发表在IJCAI (International Joint Conference on Artificial Intelligence)会议上的论文，作者来自于清华大学 --- 陈新雄，徐磊。*
+
+## Abstract ##
+
+
+## Model ##
+
+
+## Experiment Result ##
 
 
 
