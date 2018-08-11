@@ -33,7 +33,7 @@ tags:
 ![](https://i.imgur.com/KmB32WF.jpg)
 
 ## Experiment Result ##
-在`Word Similarity` 和 `Text Classification` 上面进行了实验。  
+在`Word Similarity` 和 `Text Classification` 上面进行了实验，对于`Word Similarity`任务，可以参考以前写的一篇文章 --- [中英文词向量评测](https://bamtercelboo.github.io/2018/05/12/embedding_evaluation/)。  
 `Word Similarity`采用的评估文件大多数都是基于英文构建的，像 `WS-353`，`RG-65`等，对于中文来说，仅有`HowNet`和 `E-TC（哈工大词林）`，由于HowNet包含较少的现代词，选择采用E-TC进行评测；Text Classification 选择的数据集是`腾讯新闻（Tencent news datasets）`，在Word Similarity 和 Text Classification上面都验证了论点。下图是实验结果。
 ![](https://i.imgur.com/99pznZG.jpg)
 
@@ -91,6 +91,14 @@ v_context如下，其中c_most代表的是在聚类中最频繁被选择的。
 
 
 ## Experiment Result ##
+在 `Word Relatedness Computation` 和 `Analogical Reasoning`任务上验证了其有效性，对于這两个任务，可以参考以前写的一篇文章 --- [中英文词向量评测](https://bamtercelboo.github.io/2018/05/12/embedding_evaluation/)。      
+1. Word Relatedness Computation 采用的评测数据是 `wordsim-240`，`wordsim-296`，以下是评测结果。   
+![](https://i.imgur.com/1cNrhzx.jpg)    
+2. 对于Analogical Reasoning，由于没有中文的评测数据，手工构建了一份数据集，并且這个数据集在后续的中文词向量评测中被广泛使用。      
+![](https://i.imgur.com/e7h8VRU.jpg)    
+
+
+
 
 
 
