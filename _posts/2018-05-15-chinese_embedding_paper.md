@@ -49,6 +49,14 @@ tags:
 但是训练CWE存在一些问题，像单个汉字可能存在多种意义，有些汉字组成的词，其中的汉字分开时没有意义的等一些问题，文中提出了 `multiple-prototype character embedding` 和 `an effective word selection method` 分别来解决问题。在 `Word Relatedness Computation` 和 `Analogical Reasoning`任务上验证了其有效性。 
 
 ## Model ##
+### Character-Enhanced Word Embedding ###
+CWE是在CBOW的基础之上进行的改进，CWE和CBOW的模型结构图如下图所示。  
+![](https://i.imgur.com/jyVZigH.jpg)   
+像上图表示的一样，词由词和组成它的字联合表示，具体表示是下面的公式， w代表word embedding，c代表的是character embedding，N代表一个词有多少字组成，有两种联合方式，一种是 `addition` ，一种是 `concatenation`。
+![](https://i.imgur.com/upqbolt.jpg)  
+在实验过程中发现 `addition` 要优于 `concatenation`，后续实验过程中都采用addition的联合方式，并且对公式进行了简化，在上个公式基础之上，取词和字的平均，如下图。  
+![](https://i.imgur.com/5wbEq39.jpg)
+
 
 
 
