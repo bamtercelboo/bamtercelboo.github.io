@@ -50,15 +50,19 @@ tags:
 
 
 ### Learn word and character embeddings with our model  --- SCWE ###
+下图是论文中给出的CWE和SCWE的模型图，  根据上文的几个阶段和SCWE的模型图，应该可以理解这篇论文的意图。    
+![](https://i.imgur.com/qGzyqyb.jpg)  
 
+在SCWE中词的向量被表示为下图，    
+![](https://i.imgur.com/uD1ohJA.jpg)
 
-
-
-
+在SCWE的基础之上，又提出了SCWE+M模型，和SCWE差不多，只是根据上文提供的F的最后一个元素特征，对于字的不同意义采用不同的character embedding，具体词向量表示如下图。    
+![](https://i.imgur.com/ezxZRtk.jpg)  
 
 
 ## Experiment Result ##
-
+在 `Word Similarity` 和 `Text Classification` 上验证了其有效性，Word Similarity同样采用的评测文件是`wordsim-240`，`wordsim-296`，Text Classification采用的是 `Fudan Corpus`，具体的实验结果如下图：  
+![](https://i.imgur.com/E26NIAg.jpg)  
 
 
 
