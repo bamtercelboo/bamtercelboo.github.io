@@ -71,6 +71,7 @@ tags:
 *这是一篇2016年发表在`EMNLP(Empirical Methods in Natural Language Processing)`会议上的论文，作者来自于信息内容安全技术国家工程实验室 --- 殷荣超。*
 
 ## Abstract ##
+与英文等西方语言相比，一个中文词通常有很多单个汉字组成，汉字又可以分解成许多的组件，部首就是其中的一个组件，而且其内部丰富的语义信息更能表达词的意义，在目前存在的中文词向量模型中，并没有充分的利用這一特征。基于此，提出了`multi-granularity embedding (MGE)`模型，其核心思想是充分利用其`word-character-radical`组成部分，更加细粒度的结合`character`和`radical（部首）`来增强词的向量表示。在`word similarity` 和 `analogical reasoning`任务上验证了其有效性。  
 
 
 ## Model ##
