@@ -65,11 +65,24 @@ tags:
 ![](https://i.imgur.com/E26NIAg.jpg)  
 
 
+# 二、Multi-Granularity Chinese Word Embedding #
 
+## 论文来源 ##
+*这是一篇2016年发表在`EMNLP(Empirical Methods in Natural Language Processing)`会议上的论文，作者来自于信息内容安全技术国家工程实验室 --- 殷荣超。*
+
+## Abstract ##
+
+
+## Model ##
+
+
+## Experiment Result ##
 
 
 # References  #
 [1] Improve Chinese Word Embeddings by Exploiting Internal Structure  
+[2] Multi-Granularity Chinese Word Embedding  
+
   
  
 
