@@ -73,8 +73,17 @@ tags:
 ## Abstract ##
 与英文等西方语言相比，一个中文词通常有很多单个汉字组成，汉字又可以分解成许多的组件，部首就是其中的一个组件，而且其内部丰富的语义信息更能表达词的意义，在目前存在的中文词向量模型中，并没有充分的利用這一特征。基于此，提出了`multi-granularity embedding (MGE)`模型，其核心思想是充分利用其`word-character-radical`组成部分，更加细粒度的结合`character`和`radical（部首）`来增强词的向量表示。在`word similarity` 和 `analogical reasoning`任务上验证了其有效性。  
 
-
+ 
 ## Model ##
+MGE的目的是联合学习word，character，radical，模型的结构是基于CBOW来完成的，如下图所示，  其中蓝色部分是上下文，绿色部分是上下文词的character，黄色部分是目标词的radical。根据图中的例子，给定的序列是 ：`”回家，吃饭，会友“`，目标词是`会友`。  
+![](https://i.imgur.com/R27kwk3.jpg)  
+
+具体的表示如下，MGE的目标函数如下图，  
+![](https://i.imgur.com/7n2BI07.jpg)  
+h_i是一个隐层表示，具体表示如下图，具体来说就是对于每一个上下文的词，  对其所有的character embedding求和取平均，然后和word embedding进行addition操作，然后对所有的上下文词求和取平均，這样就完成了word 和 character的结合，对于目标词所有的radical也是一样的求和取平均的操作，然后word+character与radical再次求和取平均，這样就完成了h_的隐层表示，至于word和character结合的时候，中间的那个操作符号，可以是addition，也可以是concatenation，這篇论文采用的是addition操作。  
+![](https://i.imgur.com/6qfVs34.jpg)  
+
+也和`CWE模型`存在一样的问题，一字多义，音译词等character没有意义的词，follow了CWE的做法，提出了`MGE+P模型`，目的和CWE一样，增加其位置信息，`Begin，Middle，End`。  
 
 
 ## Experiment Result ##
