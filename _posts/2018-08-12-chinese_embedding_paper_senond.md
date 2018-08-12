@@ -87,6 +87,13 @@ h_i是一个隐层表示，具体表示如下图，具体来说就是对于每�
 
 
 ## Experiment Result ##
+在 `Word Similarity` 和 `Analogical Reasoning` 上验证了其有效性。  
+`Word Similarity`同样采用的评测文件是`wordsim-240`，`wordsim-296`，但是对其进行了一定的删减，把两份评测文件中没有在训练语料中出现的词进行了删减，分别删减了一个词和三个词，得到了两份新的评测文件，`wordsim-239`，`wordsim-293` ，具体的实验结果如下图。  
+![](https://i.imgur.com/4lF8njB.jpg)  
+
+`Analogical Reasoning`采用的是Chen 2015年构造的评测文件，由于所有的词都包含在训练语料中，没有对這个数据进行删减，具体的实验结果如下图。    
+![](https://i.imgur.com/TOxMvU4.jpg)
+
 
 
 # References  #
