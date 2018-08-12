@@ -21,6 +21,7 @@ tags:
 *这是一篇2016年发表在`NAACL-HLT(Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies)`会议上的论文，作者来自于中国科学技术大学 --- Jian Xu。*
 
 ## Abstract ##
+`这篇论文的做法比较奇特，而且中间步骤很多`。
 已经在前面提到的两篇论文表明中文汉字内部的包含了丰富的语义信息，对中文词向量的表示有着很重要的作用，这篇论文也是基于此来进行相关工作。  
 具体来说，是基于前面的`CWE模型`，虽然CWE已经考虑了词的内部组成，增加了语义信息的表示，然而，却忽略了一些问题，在每一个词和他们的组成部分（单字）之间，CWE把单字和词之间的贡献作为一致的，这篇论文提出，他们之间的`贡献度应该是不同的`，CWE忽略了这一问题，本文要利用外部语言来获取语义信息，计算词与单字之间的相似度来表示其贡献的不同，完善相关工作。  
 论文提出了联合学习词与字的方法，该方法可以消除中文单字的歧义性，也可以区别出词内部无意义的组成，实验结果表明在 `Word Similarity` 和 `Text Classification` 上验证了其有效性。
@@ -39,7 +40,13 @@ tags:
 在中文中，相同的词和字符，虽然被应用为不同的词性，但是想要表达的语义信息是一样的。因此，这些被合并为一个，共用一个语义表示。如下图，多个`乐`字可能仅仅在不同的词性之间有所不同，然而语义信息几乎相同。  
 ![](https://i.imgur.com/N1dNNuS.jpg)  
 
+通过计算相似度来消除歧义，具体的公式如下，  其中c_i，c_j代表的是某个词中的第几个字，Trans(c_i)表示这个字的英文，stop-words(en)代表英文的停用词，x是Trans中的英文，具体来说，看上图，对于`音乐`这个词，c_1表示`音`，c_2表示`乐`，Trans(c_2)表示的是乐在上图中的英文集合，x_3就是pleasure或者是enjoyment。    
+![](https://i.imgur.com/d5h5kBc.jpg)  
 
+根据上图的公式就可以计算出字之间的相似度，如果这个值超过了某一个阈值，合并为同一个语义表示。对此，还进行了简化，都是针对一个词被翻译成多个英文的处理，其中一个是把字英文集合取平均值然后计算similarity，另外一个是在所有的候选英文词对中选择相似度值最大的，根据实验表明，后一种方案效果更佳。根据相似度，就可以把简单的解决一下字的歧义性。    
+如果max(Sim(x_t, c_k)) > w, c_k是x_t中的第几个字，这样x_t就被定义为 `compositional word`，对于 compositional word 定义如下图，对于`音乐`这个词来说，就被定义为(“音乐”， {Sim(“音乐”, “音”)， Sim(“音乐”, “
+乐”)}，{1,1}）。  
+![](https://i.imgur.com/169ixoU.jpg)  
 
 
 ### Learn word and character embeddings with our model  --- SCWE ###
