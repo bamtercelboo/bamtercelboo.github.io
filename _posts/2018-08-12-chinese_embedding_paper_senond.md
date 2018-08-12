@@ -18,14 +18,34 @@ tags:
 # 一、Improve Chinese Word Embeddings by Exploiting Internal Structure #
 
 ## 论文来源 ##
-*这是一篇2016年发表在`NAACL-HLT(Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies)`会议上的论文，作者来自于中国科学技术大学 --- Jian xu。*
+*这是一篇2016年发表在`NAACL-HLT(Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies)`会议上的论文，作者来自于中国科学技术大学 --- Jian Xu。*
 
 ## Abstract ##
 已经在前面提到的两篇论文表明中文汉字内部的包含了丰富的语义信息，对中文词向量的表示有着很重要的作用，这篇论文也是基于此来进行相关工作。  
 具体来说，是基于前面的`CWE模型`，虽然CWE已经考虑了词的内部组成，增加了语义信息的表示，然而，却忽略了一些问题，在每一个词和他们的组成部分（单字）之间，CWE把单字和词之间的贡献作为一致的，这篇论文提出，他们之间的`贡献度应该是不同的`，CWE忽略了这一问题，本文要利用外部语言来获取语义信息，计算词与单字之间的相似度来表示其贡献的不同，完善相关工作。  
 论文提出了联合学习词与字的方法，该方法可以消除中文单字的歧义性，也可以区别出词内部无意义的组成，实验结果表明在 `Word Similarity` 和 `Text Classification` 上验证了其有效性。
 
-## Model ##
+## Methodology and Model ##
+论文提出的方法可以分为以下几个阶段，`Obtain translations of Chinese words and characters`，`Perform Chinese character sense disambiguation`，`Learn word and character embeddings with our model`。  
+
+### Obtain translations of Chinese words and characters ###
+对中文训练语料使用分词工具进行分词，分词工具可以采用jieba，Zpar，thulac，对分词之后的数据进行词性标注（`Part-of-Speech tagging`），词性标注的目的是识别出所有的实体（这里的实体，应该是词性），因为实体词是没有语义信息的，这些词被定义为`non-compositional word`，也就是词的内部组成是没有意义的。    
+这里使用了字频来做了下面的一个筛选，提出计算不同词内部单字出现的数量，我称之为字频，字频较低的那些词被认定为是`single-morpheme multi-character words` （像徘徊，琵琶這样的词语，其中的单字很难在其他的词语中使用），定义为 `non-compositional word`。  
+下一步的工作让人意想不到，`把中文词语翻译成了英文`，但是这里面并不包含无意义的词（non-compositional word），翻译成英文是为了下面的工作 --- `Perform Chinese character sense disambiguation`。
+
+
+### Perform Chinese character sense disambiguation ###
+这里的工作主要是对中文一字多义的单字消除歧义性，对上文得到的英文语料，通过`CBOW`模型对这份语料进行训练，得到一份英文词向量，对其中区别不是很大的字符进行合并。  
+在中文中，相同的词和字符，虽然被应用为不同的词性，但是想要表达的语义信息是一样的。因此，这些被合并为一个，共用一个语义表示。如下图，多个`乐`字可能仅仅在不同的词性之间有所不同，然而语义信息几乎相同。  
+![](https://i.imgur.com/N1dNNuS.jpg)  
+
+
+
+
+### Learn word and character embeddings with our model  --- SCWE ###
+
+
+
 
 
 
