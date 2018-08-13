@@ -81,7 +81,7 @@ RNN-Skipgram是把RNN和skipgram结合，通过RNN对glyph特征进行编码，�
 与西方语言不同，中文汉字包含了丰富的语义信息，这篇论文提出了一个联合学习word，character和更加细粒度的subcharacter的方法来学习word embedding。在`Word Similarity` 和 `Word Analogy`任务上验证其优越性。  
 
 ## Model ##
-提出了一个联合学习word embedding的模型，称之为`JWE模型`，JWE模型也是基于CBOW来进行的完善，模型结构如下图。根据下图，只是在输入端多了一些改变，w_i代表目标词；w_i+1，w_i-1代表上下文词；c_i-1，c_i+1代表上下文词的character；s_i+1，s_i-1代表上下文词的subcharacter(radical)，s_i代表目标词的subcharacter(radical)。  
+提出了一个`联合（ Chinese words, characters, and subcharacter components）`学习word embedding的模型，称之为`JWE模型`，JWE模型也是基于CBOW来进行的完善，模型结构如下图。根据下图，只是在输入端多了一些改变，w_i代表目标词；w_i+1，w_i-1代表上下文词；c_i-1，c_i+1代表上下文词的character；s_i+1，s_i-1代表上下文词的subcharacter(radical)，s_i代表目标词的subcharacter(radical)。  
 ![](https://i.imgur.com/Mk1uDjy.jpg)
 
 
@@ -90,10 +90,22 @@ RNN-Skipgram是把RNN和skipgram结合，通过RNN对glyph特征进行编码，�
 ![](https://i.imgur.com/mqRMkx9.jpg)
 
 ## Experiment Result ##
+在 `Word Similarity` 和 `Word Analogy` 上验证了其优越性。  
+论文在模型上尝试了不同的组合来进行实验，具体如下：  
+1. +c   ：代表的是component特征  
+2. +r    ：代表的是radical特征  
+3. +p   ：代表的是subcharacter components 特征  
+4. +p1 ：代表的是使用上下文词的subcharacter components 特征  
+5. +p2 ：代表的是使用目标词的subcharacter components 特征  
+6. +p3 ：代表的是使用上下文词和目标词的subcharacter components 的特征  
+7. -n    ：代表的是仅仅使用character    
+8. 具体来说上面提到的`component，radical(偏旁)，subcharacter`，比如`照`这个汉字，它的`radical是 灬`，`component是日、刀、口`，`subcharacter是subcharacter components`，应该是所有的components（包含radical）。  
 
+`Word Similarity`采用的评测文件是`wordsim-240`，`wordsim-295`，`wordsim-296`移除了评测文件中没有出现在训练语料中的一个词，变为评测文件`wordsim-295`，具体的实验结果如下图。  
+![](https://i.imgur.com/NEKw8aI.jpg)
 
-
-
+`Word Analogy`采用的是Chen 2015年构造的评测文件，具体的实验结果如下图。  
+![](https://i.imgur.com/vovCCT5.jpg)  
 
 
 # References  #
