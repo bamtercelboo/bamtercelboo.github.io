@@ -22,14 +22,27 @@ tags:
 
 
 ## Abstract ##
+这篇论文虽然是针对英文等西方语言提出的想法，但是后面`cw2vec`将这个idea在中文词向量上进行了应用，在这里还是简单的介绍一下。  
 
+在英文中，每一个单词由若干个字母组成，单词的词义和其中的组成是有很大的关系的，这篇论文的核心思想就是采用单词的`n-gram特征`学习词向量的表示，并取得了很好的实验效果。  
 
 
 ## Model ##
+这篇论文提出的方法也很简单，在每个word的前后分别添加` < 与 > `字符，作为这个单词的开始于结束，还有就是对于只有一个字母的word进行表示，然后抽取其`n-gram词袋特征`，具体来说，以`3-gram`为例，单词`where`，可以被表示成`<wh，whe，her，ere，re>`，单词`a`，可以表示为`<a>`，这篇论文抽取的是`3 至 6的n-gram`，那么where的所有表示就是，`3-ngram：<wh，whe，her，ere，re>，<whe`，`4-gram：<whe，wher，here，ere>`，`5-gram：<wher，where，here>`，`6-gram：<where，where>`，以上就是where的所有表示，除此之外，还把原单词`<where>`加入到n-gram中，`最后word采用的是所有的n-gram的和。`     
 
+
+这篇论文没有提供模型结构图，但是都是基于CBOW和skipgram进行的改善。  
 
 
 ## Experiment Result ##
+这篇论文的实验部分，在`Human similarity judgement` 和 `Word analogy tasks`上面做了比较，`而且是在多种语言进行了实验`，具体的实验结果如下图所示，其中`sg`代表skipram，`sisg-`代表的是对那些不在评测文件中出现的词采用不做处理，`sisg`代表的是不在评测文件中的词采用n-gram加和表示。  
+1. **Human similarity judgement**  
+![](https://i.imgur.com/P3Mvlok.png)
+
+2. **Word analogy tasks**    
+![](https://i.imgur.com/zQmpjjq.png)
+
+
 
 
 # 二、 cw2vec: Learning Chinese Word Embeddings with Stroke n-gram Information #
