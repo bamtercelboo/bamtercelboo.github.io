@@ -22,6 +22,7 @@ tags:
 
 
 ## Abstract ##
+这篇论文的出发点也很新颖，中文汉字可以认为是由图形组件组成的，具有丰富的语义信息，基于此，提出了一个新的学习中文词向量的方法，通过图形字符（`character glyphs`）来增强词的表示，character glyphs通过图像卷积从位图（bitmaps）中编码得来，character glyphs特征加强了word的表示，也提高了character embedding。  
 
 
 ## Model ##
@@ -29,6 +30,36 @@ tags:
 
 ## Experiment Result ##
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 二、 #
+
+## 论文来源 ##
+
+
+
+## Abstract ##
+
+
+## Model ##
+
+
+## Experiment Result ##
 
 
 
