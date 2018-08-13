@@ -74,14 +74,20 @@ RNN-Skipgram是把RNN和skipgram结合，通过RNN对glyph特征进行编码，�
 # 二、Joint Embeddings of Chinese Words, Characters, and Fine-grained Subcharacter Components #
 
 ## 论文来源 ##
-
+*这是一篇2017年发表在`EMNLP(Empirical Methods in Natural Language Processing)`会议上的论文，作者来自于香港科技大学 --- Jinxing Yu。*
 
 
 ## Abstract ##
-
+与西方语言不同，中文汉字包含了丰富的语义信息，这篇论文提出了一个联合学习word，character和更加细粒度的subcharacter的方法来学习word embedding。在`Word Similarity` 和 `Word Analogy`任务上验证其优越性。  
 
 ## Model ##
+提出了一个联合学习word embedding的模型，称之为`JWE模型`，JWE模型也是基于CBOW来进行的完善，模型结构如下图。根据下图，只是在输入端多了一些改变，w_i代表目标词；w_i+1，w_i-1代表上下文词；c_i-1，c_i+1代表上下文词的character；s_i+1，s_i-1代表上下文词的subcharacter(radical)，s_i代表目标词的subcharacter(radical)。  
+![](https://i.imgur.com/Mk1uDjy.jpg)
 
+
+`损失函数有所不同，为三者的相加`，具体公式如下，其中h_i1，h_i2，h_i3分别代表context word，context character，context subcharacter，h_i1，h_i2，h_i3分别取三者的平均值作为表示，例如h_i1如下图2所示，v_wi代表的是context word。    
+![](https://i.imgur.com/tRNkNOu.jpg)  
+![](https://i.imgur.com/mqRMkx9.jpg)
 
 ## Experiment Result ##
 
