@@ -32,7 +32,16 @@ tags:
 ## Experiment Result ##
 
 
-# 二、 #
+# 二、 cw2vec: Learning Chinese Word Embeddings with Stroke n-gram Information #
+
+## 论文来源 ##
+*这是一篇2018年发表在`AAAI 2018(Association for the Advancement of Artificial Intelligence 2018)`会议上的论文，作者来自于蚂蚁金服人工智能部 --- 曹绍升  。*
+
+## 详解 ##
+这篇我在前面已经对其理论进行了总结，并且实现了一个C++版本，具体的可以查看，[cw2vec理论及其实现](https://bamtercelboo.github.io/2018/05/11/cw2vec/)。  
+
+  
+# 三、Radical Enhanced Chinese Word Embedding #
 
 ## 论文来源 ##
 
@@ -49,11 +58,11 @@ tags:
 ## Experiment Result ##
 
 
-  
-
 
 # References  #
-[1]   
+[1] Enriching Word Vectors with Subword Information  
+[2] cw2vec: Learning Chinese Word Embeddings with Stroke n-gram Information  
+
   
 
 
