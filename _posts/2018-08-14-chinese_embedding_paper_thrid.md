@@ -18,7 +18,7 @@ tags:
 # 一、Learning Chinese Word Representations From Glyphs Of Characters #
 
 ## 论文来源 ##
-*这是一篇2017年发表在`EMNLP(Empirical Methods in Natural Language Processing)`会议上的论文，作者来自于台湾国立大学 --- Tzu-Ray Su 和 Hung-Yi Lee。*
+*这是一篇2017年发表在`EMNLP(Empirical Methods in Natural Language Processing)`会议上的论文，作者来自于台湾大学 --- Tzu-Ray Su 和 Hung-Yi Lee。*
 
 
 ## Abstract ##

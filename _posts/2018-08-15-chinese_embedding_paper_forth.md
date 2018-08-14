@@ -57,7 +57,7 @@ tags:
 # 三、Radical Enhanced Chinese Word Embedding #
 
 ## 论文来源 ##
-
+*这是一篇2018年发表在`CCL2018(The Seventeenth China National Conference on Computational Linguistics, CCL 2018)`会议上的论文，作者来自于电子科技大学 --- Zheng Chen 和 Keqi Hu 。*
 
 
 ## Abstract ##
