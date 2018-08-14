@@ -35,7 +35,7 @@ tags:
 
 
 ## Experiment Result ##
-这篇论文的实验部分，在`Human similarity judgement` 和 `Word analogy tasks`上面做了比较，`而且是在多种语言进行了实验`，具体的实验结果如下图所示，其中`sg`代表skipram，`sisg-`代表的是对那些不在评测文件中出现的词采用不做处理，`sisg`代表的是不在评测文件中的词采用n-gram加和表示。  
+这篇论文的实验部分，不仅仅在`Human similarity judgement` 和 `Word analogy tasks`两个任务上面做了比较，还包含了其他的对比实验，`并且是在多种语言进行了实验`，具体的实验结果如下图所示，其中`sg`代表skipram，`sisg-`代表的是对那些不在评测文件中出现的词采用不做处理，`sisg`代表的是不在评测文件中的词采用n-gram加和表示。  
 1. **Human similarity judgement**  
 ![](https://i.imgur.com/P3Mvlok.png)
 
@@ -61,20 +61,39 @@ tags:
 
 
 ## Abstract ##
-
+这篇论文是我最近整理的时候看到的，也算是最新的中文词向量论文了，在这里也简单的看一下。  
+在这篇论文中，考虑了中文汉字内部丰富的语义信息，通过新的方法抽取特征，提出了新的学习中文词向量的方法，在`Word Similarity` 和 `Word Analogy`上面验证其效果。
 
 
 ## Model ##
+模型是基于CBOW来进行的改进，通过Radical（部首）来增强word embedding，称之为`RECWE模型`，具体的模型结构如下图所示，模型结构分为了两个部分：  
+左边的是`word prediction module`，是一个典型的CBOW模型结构，其中w_i代表的是目标词，w_i+1、w_i-1代表的是上下文词，h_i1代表是的上下文词的隐层表示。  
+右边是 `sub-information prediction module`，它与 word prediction module并行存在，其中的c、s、r与word prediction module 中的w相对应，分别是`上下文词与目标词的character、component、radical`，h_i2代表的是左右的特征隐层表示。在这部分，也存在`CWE模型`中一字多义，音译词等影响，他们考虑使用word来构建h_i2。  
+![](https://i.imgur.com/iE6SECM.jpg)
+
+为了能够充分的挖掘内部语义信息，对radical进行了转换处理，如下图，  
+![](https://i.imgur.com/ky4nm91.jpg)  
+
+目标函数变化的不大，具体如下图，对 h_i1 和 h_i2 都采用了average处理。  
+![](https://i.imgur.com/s1WxPqc.jpg)
 
 
 
 ## Experiment Result ##
+在 `Word Similarity` 和 `Word Analogy` 上验证了其实验效果。  
+为了验证`sub-information特征`的影响，  实验部分考虑了三种sub-information特征，分别为`p1、p2、p3`，其中p1代表的是仅仅使用上下文词的sub-information，p2代表的是仅仅使用目标词的sub-information，p3代表的是使用目标词和上下文词的sub-information。  
+`Word Similarity`采用的评测文件是`wordsim-240`，`wordsim-296`，具体的实验结果如下图。    
+![](https://i.imgur.com/7ccDNvG.jpg)
 
+`Word Analogy`采用的是Chen 2015年构造的评测文件，具体的实验结果如下图。    
+![](https://i.imgur.com/84TRB9v.jpg)
 
 
 # References  #
 [1] Enriching Word Vectors with Subword Information  
 [2] cw2vec: Learning Chinese Word Embeddings with Stroke n-gram Information  
+[3] Radical Enhanced Chinese Word Embedding  
+
 
   
 
