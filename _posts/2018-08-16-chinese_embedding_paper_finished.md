@@ -44,6 +44,12 @@ tags:
 9. [Radical Enhanced Chinese Word Embedding](https://bamtercelboo.github.io/2018/08/15/chinese_embedding_paper_forth/#%E4%B8%89radical-enhanced-chinese-word-embedding)  
 这是一篇2018年发表在`CCL2018(The Seventeenth China National Conference on Computational Linguistics, CCL 2018)`会议上的论文，作者来自于电子科技大学 — Zheng Chen 和 Keqi Hu 。  
 
+10. [Glyce: Glyph-vectors for Chinese Character Representations](https://arxiv.org/pdf/1901.10125.pdf)  
+2019年，香侬科技提出了一种汉字字形向量 Glyce。根据汉字的进化过程，采用了多种汉字古今文字和多种书写风格，专为中文象形文字建模设计了一种田字格 CNN架构。Glyce 在13个任务上面达到了很好的性能。
+
+
+
+
 
 # References  #
 [1] Component-Enhanced Chinese Character Embeddings  
@@ -55,6 +61,8 @@ tags:
 [7] Enriching Word Vectors with Subword Information  
 [8] cw2vec: Learning Chinese Word Embeddings with Stroke n-gram Information  
 [9] Radical Enhanced Chinese Word Embedding  
+[10] Glyce: Glyph-vectors for Chinese Character Representations  
+
 
 
 
