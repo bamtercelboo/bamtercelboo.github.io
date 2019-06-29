@@ -30,8 +30,8 @@ tags:
 
 #  三、Deep Biaffine Attention for Neural Dependency Parsing  #
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于图的依存句法分析从左向右解析句子，针对句中的每个词，找该词的head词(该词到head词之间的arc)以及从该词到head词之间的依存关系类型,即需要解决两个问题：哪两个节点连依存弧以及弧的标签是什么。目前的深度学习的方法使用分类器来解决这两个问题。该模型是针对图的依存句法分析，是对Kiperwasser & Goldberg(2016),Hashimoto et al.(2016), and Cheng et al.(2016)提出的模型加以修改。主要的修改如下：  
-- 使用双仿射注意力机制(Biaffine Attention)代替双线性(bilinear)或传统的MLP-based注意力机制, 运用了一个双线性层而不是两个线性层和一个非线性层。  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于图的依存句法分析从左向右解析句子，针对句中的每个词，找该词的head词(该词到head词之间的arc)以及从该词到head词之间的依存关系类型,即需要解决两个问题：哪两个节点连依存弧以及弧的标签是什么。目前的深度学习的方法使用`分类器`来解决这两个问题。该模型是针对图的依存句法分析，是对Kiperwasser & Goldberg(2016),Hashimoto et al.(2016), and Cheng et al.(2016)提出的模型加以修改。主要的修改如下：  
+- 使用`双仿射注意力机制(Biaffine Attention)`代替双线性(bilinear)或传统的MLP-based注意力机制, 运用了一个双线性层而不是两个线性层和一个非线性层。  
 - 使用Biaffine依存标签分类器。  
 - 在双仿射变换(Biaffine transformation)之前，将降维MLP应用于每个循环输出。  
 
@@ -41,16 +41,16 @@ tags:
 
 
 ## arc得分 ##
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若句子中有N个单词，包含虚根ROOT在内一共d=N+1个词。对每个词都需要得到一个分数si。因为句子中的词的个数是不确定的，所以这是一个不定类别分类问题。而一般MLP是个固定类别的分类器(公式1)，为了能够处理不定类别分类问题，本文采用两个MLP对BILSTM隐层输出向量进行重新编码(公式4、公式5)。  然后套用公式(2)得到公式(6), 得到分数。这里两个MLP分别针对于dep和head。MLP得到的向量表示通常更小，好处是能够去除多余的信息。因为原始BiLSTM隐层中含有预测依存弧标签的信息。对预测head无用。   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若句子中有N个单词，包含虚根ROOT在内一共d=N+1个词。对每个词都需要得到一个分数si。`因为句子中的词的个数是不确定的，所以这是一个不定类别分类问题`。而一般MLP是个固定类别的分类器(公式1)，为了能够处理不定类别分类问题，本文采用两个MLP对BILSTM隐层输出向量进行重新编码(公式4、公式5)。  然后套用公式(2)得到公式(6), 得到分数。这里两个MLP分别针对于dep和head。MLP得到的向量表示通常更小，好处是能够去除多余的信息。因为原始BiLSTM隐层中含有预测依存弧标签的信息。对预测head无用。   
 
 ![](https://i.imgur.com/csQesyS.jpg)  
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本文把上述公式称之为deep bilinear attention mechanism，因为并没有直接用RNN输出的向量表示，而是采用了对head和dep专用的两个MLP进行再次编码。这里并没有用到熟悉的attention公式，但是称之为attention的原因是，输入是所有时刻的LSTM隐层向量表示，输出是一个在各个时刻上归一化之后向量表示。和其它Graph-based模型一样，在训练时，预测的解析树是每一个单词都依存于其得分最高的head(虽然在测试时也会通过MST算法确保解析树是一个格式良好的树)。  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本文把上述公式称之为`deep bilinear attention mechanism`，因为并没有直接用RNN输出的向量表示，而是采用了对head和dep专用的两个MLP进行再次编码。这里并没有用到熟悉的attention公式，但是称之为attention的原因是，输入是所有时刻的LSTM隐层向量表示，输出是一个在各个时刻上归一化之后向量表示。和其它Graph-based模型一样，在训练时，预测的解析树是每一个单词都依存于其得分最高的head(虽然在测试时也会通过MST算法确保解析树是一个格式良好的树)。  
 
 
 ## arc标签 ##
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;head与dep之间的依存关系数目是确定的，这是一个确定类别的分类问题,采用下述公式(3)计算标签分数。  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`head与dep之间的依存关系数目是确定的，这是一个确定类别的分类问题`,采用下述公式(3)计算标签分数。  
 
 ![](https://i.imgur.com/8Lq1wfe.jpg)    
 
@@ -58,10 +58,10 @@ tags:
  
 ## 整体结构图 ##
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模型的整体结构图：  ![](https://i.imgur.com/W9gEgzX.jpg)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该模型图从下向上看，输入是词与词性向量拼接之后的向量表示，通过BiLSTM提取到特征ri，经过两个不同的MLP分别得到 h(arc−dep) 和 h(arc−head) ，d(所有词)个这样的h stack得到H(arc−dep)和H(arc−head)，并且H(arc−dep)额外拼接了一个单位向量。利用中间矩阵U(arc)进行仿射变换，每个词以dep的身份与以head的身份的每个词进行点积，得到arc成立的分数矩阵S(arc)。也就是上述公式(6)得到的结果。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该模型图从下向上看，输入是`词与词性`向量拼接之后的向量表示，通过BiLSTM提取到特征ri，经过`两个不同的MLP`分别得到 h(arc−dep) 和 h(arc−head) ，d(所有词)个这样的h stack得到H(arc−dep)和H(arc−head)，并且H(arc−dep)额外拼接了一个单位向量。`利用中间矩阵U(arc)进行仿射变换，每个词以dep的身份与以head的身份的每个词进行点积，得到arc成立的分数矩阵S(arc)`。也就是上述公式(6)得到的结果。
 
 #  四、实验设置及实验结果  #
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Github.  [bamtercelboo/PyTorch_Biaffine_Dependency_Parsing](https://github.com/bamtercelboo/PyTorch_Biaffine_Dependency_Parsing)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Github`.  [bamtercelboo/PyTorch_Biaffine_Dependency_Parsing](https://github.com/bamtercelboo/PyTorch_Biaffine_Dependency_Parsing)  
 
 
 #  五、总结  #
